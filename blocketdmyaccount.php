@@ -95,6 +95,11 @@ class BlockEtdMyAccount extends Module
 	{
 		return $this->hookDisplayLeftColumn($params);
 	}
+	
+	public function hookDisplayTop($params)
+	{
+		return $this->hookDisplayLeftColumn($params);
+	}
 
 	private function addMyAccountBlockHook()
 	{
