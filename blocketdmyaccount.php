@@ -27,14 +27,14 @@
 if (!defined('_PS_VERSION_'))
 	exit;
 
-class BlockMyAccount extends Module
+class BlockEtdMyAccount extends Module
 {
 	public function __construct()
 	{
-		$this->name = 'blockmyaccount';
+		$this->name = 'blocketdmyaccount';
 		$this->tab = 'front_office_features';
 		$this->version = '1.4.1';
-		$this->author = 'PrestaShop';
+		$this->author = 'ETD Solutions';
 		$this->need_instance = 0;
 
 		parent::__construct();
@@ -50,6 +50,7 @@ class BlockMyAccount extends Module
 			|| !parent::install()
 			|| !$this->registerHook('displayLeftColumn')
 			|| !$this->registerHook('displayHeader')
+			|| !$this->registerHook('displayTop')
 			|| !$this->registerHook('actionModuleRegisterHookAfter')
 			|| !$this->registerHook('actionModuleUnRegisterHookAfter'))
 			return false;
@@ -69,7 +70,7 @@ class BlockMyAccount extends Module
 	public function hookActionModuleRegisterHookAfter($params)
 	{
 		if ($params['hook_name'] == 'displayMyAccountBlock')
-			$this->_clearCache('blockmyaccount.tpl');
+			$this->_clearCache('blocketdmyaccount.tpl');
 	}
 
 	public function hookDisplayLeftColumn($params)
